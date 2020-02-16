@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jump0.png-34054d7e9518e3e1f6bdccfdd225fd84.stex"
+path="res://.import/TestTiles.png-6ea09997a183c0709cb0bd82080edadb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Jump0.png"
-dest_files=[ "res://.import/Jump0.png-34054d7e9518e3e1f6bdccfdd225fd84.stex" ]
+source_file="res://Sprites/Tiles/TestTiles.png"
+dest_files=[ "res://.import/TestTiles.png-6ea09997a183c0709cb0bd82080edadb.stex" ]
 
 [params]
 

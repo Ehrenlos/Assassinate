@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=2]
+[ext_resource path="res://scenes/View.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 16.8779
+height = 16.2386
+
+[node name="Enemy" type="RigidBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+GRAVITY = 20
+DETECT_RADIUS = 512
+
+[node name="Idle0" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 3.42619 )
+scale = Vector2( 1, 1.12238 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="View" parent="." index="2" instance=ExtResource( 3 )]
+
+radius = 512
+
+[node name="ReadyTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="ConfusionTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="StateResetTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
+[connection signal="change_state" from="." to="." method="_on_Enemy_change_state"]
+
+

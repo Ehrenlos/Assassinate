@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/View.gd" type="Script" id=1]
+
+[node name="View" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+center = Vector2( 0, 0 )
+radius = 80
+angle_from = 30
+angle_to = 150
+color = Color( 0, 0, 0, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
+
+[connection signal="body_entered" from="." to="." method="_on_View_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_View_body_exited"]
+
+
